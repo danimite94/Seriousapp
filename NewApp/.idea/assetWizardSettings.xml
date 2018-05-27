@@ -34,8 +34,6 @@
                                   <option name="values">
                                     <map>
                                       <entry key="outputName" value="ic_action_pass1" />
-                                      <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="114152" />
                                     </map>
                                   </option>
                                 </PersistentState>
