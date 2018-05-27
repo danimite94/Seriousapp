@@ -18,6 +18,7 @@ package com.google.android.gms.samples.vision.face.facetracker;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 
 import com.google.android.gms.samples.vision.face.facetracker.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.face.Face;
@@ -32,6 +33,7 @@ class FaceGraphic extends GraphicOverlay.Graphic {
     private static final float ID_Y_OFFSET = 50.0f;
     private static final float ID_X_OFFSET = -50.0f;
     private static final float BOX_STROKE_WIDTH = 5.0f;
+    private static final String HAPPINESS = "felicidade";
 
     private static final int COLOR_CHOICES[] = {
         Color.BLUE,
@@ -83,7 +85,9 @@ class FaceGraphic extends GraphicOverlay.Graphic {
      */
     void updateFace(Face face) {
         mFace = face;
+
         if (mFace.getIsSmilingProbability()>mFaceHappiness){
+            Log.d(HAPPINESS,"entrou");
             changeact=true;
         }
         postInvalidate();

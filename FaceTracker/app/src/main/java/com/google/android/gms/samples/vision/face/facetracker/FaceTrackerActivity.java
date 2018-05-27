@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -47,19 +48,24 @@ import java.io.IOException;
  * overlay graphics to indicate the position, size, and ID of each face.
  */
 public final class FaceTrackerActivity extends AppCompatActivity {
-    private static final String TAG = "FaceTracker";
+    private static final String TAG = "Facetracker";
     private static final String actividade = "actividade";
+    private static final String control = "Controlo is ";
+    private static final String camara = "camara is ";
 
-    private int count=0;
+    private int count = 0;
     private CameraSource mCameraSource = null;
     private FaceGraphic teste1;
     private Face faceteste1;
     private CameraSourcePreview mPreview;
     private GraphicOverlay mGraphicOverlay;
+    private Boolean controlo = false;
 
+    private Handler customHandler = new Handler();
     private static final int RC_HANDLE_GMS = 9001;
     // permission request codes need to be < 256
     private static final int RC_HANDLE_CAMERA_PERM = 2;
+    Thread threadMenu;
 
     //==============================================================================================
     // Activity Methods
@@ -81,6 +87,8 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         int rc = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
         if (rc == PackageManager.PERMISSION_GRANTED) {
             createCameraSource();
+            threadMenu = new Thread(smiled);
+            threadMenu.start();
         } else {
             requestCameraPermission();
         }
@@ -88,19 +96,32 @@ public final class FaceTrackerActivity extends AppCompatActivity {
     }
 
     //check whether the smile threshold has been reached
-    private void smiled() {
-        Log.w(actividade,"entrou");
-        count=count+1;
-        String contagem= String.valueOf(count);
-        Boolean controlo=false;
-        Log.w(TAG,contagem);
-        if (FaceGraphic.changeact) {
-            controlo = true;
-            //ends game
-            startActivity(new Intent(FaceTrackerActivity.this, ScoreAdjustment.class));
-        }
+    private Runnable smiled = new Runnable() {
 
-    }
+        @Override
+        public void run() {
+
+
+            Log.d(actividade, "entrou");
+            count = count + 1;
+            String contagem = String.valueOf(count);
+
+            customHandler.postDelayed(this, 0);
+
+            Log.d(control, Boolean.toString(FaceGraphic.changeact));
+
+            if (FaceGraphic.changeact == true) {
+                Log.d(control, controlo.toString());
+                controlo = true;
+                //ends game
+
+                startActivity(new Intent(FaceTrackerActivity.this, ScoreAdjustment.class));
+                threadMenu.interrupt();
+                //android.os.Process.killProcess(android.os.Process.myPid());
+                //demora bue tempo a mudar. that's all!!!
+            }
+        }
+    };
 
     /**
      * Handles the requesting of the camera permission.  This includes
@@ -150,6 +171,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
                 new MultiProcessor.Builder<>(new GraphicFaceTrackerFactory())
                         .build());
 
+
         if (!detector.isOperational()) {
             // Note: The first time that an app using face API is installed on a device, GMS will
             // download a native library to the device in order to do detection.  Usually this
@@ -175,10 +197,9 @@ public final class FaceTrackerActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG,"iniciou");
+        Log.d(TAG, "iniciou");
 
         startCameraSource();
-        smiled();
     }
 
     /**
@@ -197,7 +218,10 @@ public final class FaceTrackerActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.d(camara, "is still on");
+
         if (mCameraSource != null) {
+            Log.d(camara, "is off");
             mCameraSource.release();
         }
     }
