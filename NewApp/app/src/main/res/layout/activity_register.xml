@@ -36,6 +36,7 @@
         android:layout_centerInParent="true"
         android:ems="10"
         android:hint="Username"
+        android:textColorHint="#fff"
         android:inputType="textPersonName"
         android:textAlignment="center" />
 
@@ -49,6 +50,7 @@
         android:layout_marginTop="198dp"
         android:ems="10"
         android:hint="Email"
+        android:textColorHint="#fff"
         android:inputType="textEmailAddress"
         android:textAlignment="center" />
 
@@ -61,6 +63,7 @@
         android:layout_marginBottom="199dp"
         android:ems="10"
         android:hint="Password"
+        android:textColorHint="#fff"
         android:inputType="textPassword"
         android:textAlignment="center" />
 
