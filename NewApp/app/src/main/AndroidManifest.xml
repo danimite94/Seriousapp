@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Register" />
-        <activity android:name=".Ranking"></activity>
+        <activity android:name=".Ranking" />
+        <activity android:name=".MainMenu" />
+        <activity android:name=".StartGame"></activity>
     </application>
 
 </manifest>

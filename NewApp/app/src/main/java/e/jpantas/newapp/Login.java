@@ -13,6 +13,7 @@ public class Login extends AppCompatActivity {
     EditText editUser, editPass;
     Button buttonLogin;
     TextView txtRegister;
+    Button button_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class Login extends AppCompatActivity {
         editPass = (EditText)findViewById(R.id.editPass);
         buttonLogin = (Button)findViewById(R.id.buttonLogin);
         txtRegister = (TextView)findViewById(R.id.txtRegister);
+        button_menu = (Button)findViewById(R.id.button_menu);
 
         txtRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,5 +36,19 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        button_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                openMainMenu();
+
+            }
+        });
+    }
+
+    public void openMainMenu(){
+        Intent intent = new Intent(this, MainMenu.class);
+        startActivity(intent);
     }
 }
+
