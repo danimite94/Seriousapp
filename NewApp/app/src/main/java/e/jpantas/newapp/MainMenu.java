@@ -21,6 +21,30 @@ public class MainMenu extends AppCompatActivity {
         btn_help = (Button)findViewById(R.id.btn_help);
 
 
+        btn_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openStartGame();
+            }
+        });
+
+        btn_friends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFriends();
+            }
+        });
+
+
     }
 
+    public void openStartGame() {
+        Intent intent = new Intent(this, StartGame.class);
+        startActivity(intent);
+        }
+
+    public void openFriends() {
+        Intent intent = new Intent(this, Friends.class);
+        startActivity(intent);
+    }
 }

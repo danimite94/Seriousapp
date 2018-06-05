@@ -19,7 +19,8 @@
         <activity android:name=".Register" />
         <activity android:name=".Ranking" />
         <activity android:name=".MainMenu" />
-        <activity android:name=".StartGame"></activity>
+        <activity android:name=".StartGame" />
+        <activity android:name=".Friends"></activity>
     </application>
 
 </manifest>
