@@ -15,6 +15,7 @@ public class StartGame extends AppCompatActivity implements AdapterView.OnItemSe
 
     Spinner spinner;
     Button btn_ready;
+    TextView textUser1, textUser2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class StartGame extends AppCompatActivity implements AdapterView.OnItemSe
 
         btn_ready = (Button)findViewById(R.id.btn_ready);
         spinner = (Spinner)findViewById(R.id.spinner);
+        textUser1 = (TextView)findViewById(R.id.textUser1);
+        textUser2 = (TextView)findViewById(R.id.textUser2);
 
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this,R.array.Friends,android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapter);
