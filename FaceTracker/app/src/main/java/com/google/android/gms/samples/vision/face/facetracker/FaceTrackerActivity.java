@@ -87,6 +87,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
 
     }
 
+
     //check whether the smile threshold has been reached
     private void smiled() {
         Log.w(actividade,"entrou");
