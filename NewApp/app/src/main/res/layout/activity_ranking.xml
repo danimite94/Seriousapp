@@ -16,28 +16,15 @@
         android:layout_height="71dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="17dp"
         app:srcCompat="@drawable/serioug22" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="199dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="106dp"
-        android:text="Leaderboard"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#000"
-        android:textSize="30dp" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="410dp"
+        android:layout_height="419dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="157dp">
+        android:layout_marginTop="148dp">
 
 
         <LinearLayout
@@ -47,6 +34,28 @@
 
     </ScrollView>
 
+<<<<<<< HEAD
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="199dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp"
+        android:text="Leaderboard"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#000"
+        android:textSize="30dp" />
+=======
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Back" />
+>>>>>>> e949f1827bba581e3150b4f35f20272c96e6745a
 
 
 </RelativeLayout>

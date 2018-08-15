@@ -35,6 +35,14 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
+        btn_ranking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRanking();
+            }
+        });
+
+
 
     }
 
@@ -45,6 +53,14 @@ public class MainMenu extends AppCompatActivity {
 
     public void openFriends() {
         Intent intent = new Intent(this, Friends.class);
+        startActivity(intent);
+
+        // changes color if a friendship request has been sent
+
+    }
+
+    public void openRanking() {
+        Intent intent = new Intent(this, Ranking.class);
         startActivity(intent);
     }
 }
