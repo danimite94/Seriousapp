@@ -8,10 +8,13 @@ import android.widget.Button;
 
 public class Ranking extends AppCompatActivity {
     Button btn_back;
+<<<<<<< HEAD
 
     String username;
     long score;
 
+=======
+>>>>>>> e949f1827bba581e3150b4f35f20272c96e6745a
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
